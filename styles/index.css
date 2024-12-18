@@ -1,0 +1,332 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+
+::after, ::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #1769ff;
+  --secondary-color: #e01f3d;
+  --nav-color: #fff;
+  --heading-color: #eee;
+  --font-color: #c2c2c2;
+  --bg-color: #131212;
+  --border-color-light: rgba(255, 255, 255, 0.2);
+  --border-color-main: rgb(228, 230, 229);
+  --bg-gray: #212529;
+  --footer-bglight: #080808;
+  --footer-bgdark: #000;
+  --box-shadow: 0 25px 98px 0 rgb(4 2 0 / 9%);
+}
+
+nav {
+  background-color: var(--bg-gray);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 3rem 1rem 3rem;
+  z-index: 10;
+}
+
+nav h1 {
+  color: var(--primary-color);
+  text-transform: uppercase;
+  text-shadow: 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 1 );
+}
+
+nav div:nth-child(2) {
+  display:flex;
+  gap: 1rem;
+}
+
+.styled-button button {
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--font-color);
+  cursor: pointer;
+  position: relative;
+}
+
+.styled-button button::after {
+  left: 0;
+  bottom: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  border-bottom: 2px solid;
+  border-bottom-color: var(--primary-color);
+  transform: scale(0);
+  transform-origin: left;
+  transition: transform 1s;
+}
+
+.styled-button button:hover {
+  color: var(--primary-color);
+
+}
+
+.styled-button button:hover::after {
+  transform: scale(1);
+}
+
+nav input {
+  width: 100%;
+  padding: 0.5rem 0.5rem;
+  background: var(--bg-color);
+  font-size: 1rem;
+  color: var(--font-color);
+  border: none;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+nav input:focus {
+  outline: none;
+}
+
+nav input::placeholder {
+  font-size: 1rem;
+}
+
+
+.nav-right-section {
+  display: flex;
+  align-items: center;
+  flex-basis: 25%;
+}
+
+.search-field {
+  position: relative;
+  flex-grow: 1;
+}
+
+.search-field svg {
+  fill: white;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.5rem;
+  cursor: pointer;
+}
+
+.search-field svg:hover {
+  fill: var(--primary-color);
+}
+
+.button-svg {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 0.5rem;
+}
+
+.button-svg svg {
+  display: block;
+  fill: white;
+  cursor: pointer;
+}
+
+.button-svg svg:hover {
+  fill: var(--primary-color);
+}
+
+.drawer-opener {
+  display: none;
+}
+
+.nav-collapse {
+  display: none;
+  flex-basis: 100%;
+  border: 1px solid var(--border-color-main);
+  text-align: center;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.nav-collapse ul {
+  flex-grow: 1;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-collapse li {
+  margin: 0 0.5rem;
+}
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('../car.jpg');
+  background-size: cover;
+  background-position: bottom;
+  padding: 15rem 5rem 2rem 5rem;
+}
+
+.home h1 {
+  display: inline-block;
+  color: white;
+  font-size: 3.5rem;
+  max-width: 34rem;
+  z-index: 10;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 992px) {
+  
+  .home {
+    padding: 8rem 3rem 2rem 3rem;
+
+  }
+
+  .home h1 {
+    font-size: 2.2rem;
+  }
+
+  nav div:nth-child(2), nav input,
+  .search-field svg {
+    display: none;
+  }
+  
+  .drawer-opener {
+    display: block;
+  }
+}
+
+.container {
+  background-color: var(--bg-gray);
+  border: solid 1px var(--border-color-main);
+  border-radius: 0.25rem;
+  padding: 3rem 2rem;
+  color: var(--font-color);
+  max-width: 44rem;
+  min-width: fit-content;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns:  repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0.5rem;
+}
+
+.container label {
+  color: var(--heading-color);
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 0.875rem;
+  background: var(--bg-color);
+  font-size: 1rem;
+  color: var(--font-color);
+  border: solid 1px var(--border-color-light); 
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.form-button {
+  width: 100%;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 0.75rem 2.375rem;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-button:hover {
+  background-color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.container p span {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.footer-grid-container {
+  display: grid;
+  grid-template-columns:  repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.5rem;
+  color: var(--font-color);
+  background-color: var(--footer-bglight);
+  padding: 2rem 3rem;
+}
+
+.footer-grid-container h3 {
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+  position: relative;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.footer-grid-container h3::after {
+  content: '';
+  width: 70%;
+  height: 5px;
+  background-color: var(--footer-bglight);
+  position: absolute;
+  right: 0;
+  bottom: -2.5px;  
+}
+
+.footer-grid-container > div {
+ padding: 1rem
+}
+
+.footer-grid-container ul {
+  /* list-style: none; */
+  padding: 0 1rem;
+}
+
+.footer-grid-container li {
+  padding: 0 0 1rem 0;
+}
+
+.footer-grid-container li:hover {
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.footer-rights {
+  display: flex;
+  align-items: center;
+  padding: 1rem 3rem 1rem 4rem;
+  background-color: var(--footer-bgdark);
+}
+
+.footer-rights p {
+  flex-grow: 1;
+  color: var(--font-color);
+}
+
+footer svg {
+  fill: white;
+  cursor: pointer;
+}
+
+footer svg:hover {
+  fill: var(--primary-color);
+}
+
+
